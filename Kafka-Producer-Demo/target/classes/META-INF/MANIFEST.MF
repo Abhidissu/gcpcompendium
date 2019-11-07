@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Kafka-Demo
+Implementation-Version: 1.0.0-RELEASE
+Built-By: absin10
+Implementation-Vendor-Id: com.alfred.skaria.kafka
+Build-Jdk: 1.8.0_152
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/Kafka-Demo
+Created-By: Maven Integration for Eclipse
+
