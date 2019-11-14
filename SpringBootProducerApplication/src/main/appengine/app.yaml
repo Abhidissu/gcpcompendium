@@ -1,0 +1,7 @@
+service: producer-service
+runtime: java
+env: flex
+
+handlers:
+ url: /.*
+ script: this file is required but ignored
