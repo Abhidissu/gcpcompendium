@@ -1,0 +1,7 @@
+service: kafka-topic-consumer-app
+runtime: java
+env: flex
+
+handlers:
+  - url: /.*
+    script: this field is required, but ignored
