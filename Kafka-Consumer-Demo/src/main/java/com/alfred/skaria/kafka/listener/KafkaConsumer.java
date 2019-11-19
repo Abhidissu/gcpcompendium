@@ -69,7 +69,7 @@ public void EmployeeDaoImpl(NamedParameterJdbcTemplate template) {
 	         PreparedStatement st = c.prepareStatement(sql);
 	         //st.setString(0,order_number);
 	         System.out.println("entr");
-	         st.setString(1,myStringArray[0]);
+	         st.setInt(1,Integer.parseInt(myStringArray[0]));
 	         System.out.println(myStringArray[0]);
 	         st.setString(2,myStringArray[1]);
 	         System.out.println(myStringArray[1]);
@@ -89,7 +89,7 @@ public void EmployeeDaoImpl(NamedParameterJdbcTemplate template) {
 	         System.out.println(myStringArray[8]);
 	         System.out.println("Opened database successfully_1");
 	        // stmt = c.createStatement();
-	         st.executeUpdate(sql);
+	         st.executeUpdate();
 	         st.close();
 	         c.commit();
 	         c.close();
