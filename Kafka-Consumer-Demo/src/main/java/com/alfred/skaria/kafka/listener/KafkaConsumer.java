@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
 
 import org.springframework.boot.SpringApplication;
@@ -19,6 +21,7 @@ import com.alfred.skaria.kafka.KafkaConsumerDemoApplication;
 //import com.alfred.skaria.kafka.model.User;
 
 import java.util.ArrayList;
+import java.sql.Date;
 // Added for Postgress DB
 import java.util.Map;
 
@@ -67,6 +70,8 @@ public void EmployeeDaoImpl(NamedParameterJdbcTemplate template) {
 	         //String sql = "INSERT INTO public.order_header (order_id,order_number,customer_name,billing_address,shipping_address,order_status,order_date,order_type,reference_order) VALUES(order_id,sr_1,sr_2,sr_3,sr_4,sr_5,sr_6,sr_7,sr_8)";
 	         String sql = "INSERT INTO public.order_header (order_id,order_number,customer_name,billing_address,shipping_address,order_status,order_date,order_type,reference_order) VALUES(?,?,?,?,?,?,?,?,?)";
 	         PreparedStatement st = c.prepareStatement(sql);
+	         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.HH.mm.ss.SS");
+	         //2019-10-23 10:18:55.695
 	         //st.setString(0,order_number);
 	         System.out.println("entr");
 	         st.setInt(1,Integer.parseInt(myStringArray[0]));
@@ -81,7 +86,8 @@ public void EmployeeDaoImpl(NamedParameterJdbcTemplate template) {
 	         System.out.println(myStringArray[4]);
 	         st.setString(6,myStringArray[5]);
 	         System.out.println(myStringArray[5]);
-	         st.setString(7,myStringArray[6]);
+	         Date date1=(Date) sdf.parse(myStringArray[6]);  
+	         st.setDate(7, date1);
 	         System.out.println(myStringArray[6]);
 	         st.setString(8,myStringArray[7]);
 	         System.out.println(myStringArray[7]);
