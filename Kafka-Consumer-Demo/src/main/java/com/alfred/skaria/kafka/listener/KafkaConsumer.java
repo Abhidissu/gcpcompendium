@@ -86,8 +86,9 @@ public void EmployeeDaoImpl(NamedParameterJdbcTemplate template) {
 	         System.out.println(myStringArray[4]);
 	         st.setString(6,myStringArray[5]);
 	         System.out.println(myStringArray[5]);
-	         Date date1=(Date) sdf.parse(myStringArray[6]);  
-	         st.setDate(7, date1);
+	         //Date date1=(Date) sdf.parse(myStringArray[6]);  
+	         //st.setDate(7, date1);
+		 st.setString(7,NULL);
 	         System.out.println(myStringArray[6]);
 	         st.setString(8,myStringArray[7]);
 	         System.out.println(myStringArray[7]);
