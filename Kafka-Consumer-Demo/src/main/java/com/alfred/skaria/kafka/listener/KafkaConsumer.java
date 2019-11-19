@@ -58,7 +58,7 @@ public void EmployeeDaoImpl(NamedParameterJdbcTemplate template) {
 		
 		System.out.println("Cosumed msg_1: "+message);
 		  Connection c = null;
-	      Statement stmt = null;
+	      //Statement stmt = null;
 	      try {
 	         Class.forName("org.postgresql.Driver");
 	         c = DriverManager.getConnection("jdbc:postgresql://35.228.147.37:5432/postgres","postgres", "welcome1");
@@ -88,9 +88,9 @@ public void EmployeeDaoImpl(NamedParameterJdbcTemplate template) {
 	         st.setString(9,myStringArray[8]);
 	         System.out.println(myStringArray[8]);
 	         System.out.println("Opened database successfully_1");
-	         stmt = c.createStatement();
-	         stmt.executeUpdate(sql);
-	         stmt.close();
+	        // stmt = c.createStatement();
+	         st.executeUpdate(sql);
+	         st.close();
 	         c.commit();
 	         c.close();
 	      } catch (Exception e) {
