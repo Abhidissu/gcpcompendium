@@ -3,6 +3,7 @@ package com.alfred.skaria.kafka.listener;
 import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.StringTokenizer;
 
@@ -50,7 +51,8 @@ public void EmployeeDaoImpl(NamedParameterJdbcTemplate template) {
 			myStringArray[i] = String.valueOf(tokenizer.nextToken());
             i++;
         }
-		
+		int order_number = Integer.parseInt(myStringArray[0]);
+		String sr_1=myStringArray[1];String sr_2=myStringArray[2];String sr_3=myStringArray[3];String sr_4=myStringArray[4];String sr_5=myStringArray[5];String sr_6=myStringArray[6];String sr_7=myStringArray[7];String sr_8=myStringArray[8];
 		for(int k=0;k<9;k++) 
 			System.out.println(myStringArray[k]);
 		
@@ -62,7 +64,19 @@ public void EmployeeDaoImpl(NamedParameterJdbcTemplate template) {
 	         c = DriverManager.getConnection("jdbc:postgresql://35.228.147.37:5432/postgres","postgres", "welcome1");
 	         c.setAutoCommit(false);
 	         //String sql = "INSERT INTO public.order_header (order_id,order_number,customer_name,billing_address,shipping_address,order_status,order_date,order_type,reference_order) VALUES(11,'ord1','john','12, almhult','12, almhult','booked','2019-10-23 10:18:55.695','standard',NULL)";
-	         String sql = "INSERT INTO public.order_header (order_id,order_number,customer_name,billing_address,shipping_address,order_status,order_date,order_type,reference_order) VALUES(Integer.parseInt(myStringArray[0]),myStringArray[1],myStringArray[2],myStringArray[3],myStringArray[4],myStringArray[5],myStringArray[6],myStringArray[7],myStringArray[8])";
+	         //String sql = "INSERT INTO public.order_header (order_id,order_number,customer_name,billing_address,shipping_address,order_status,order_date,order_type,reference_order) VALUES(order_id,sr_1,sr_2,sr_3,sr_4,sr_5,sr_6,sr_7,sr_8)";
+	         String sql = "INSERT INTO public.order_header (order_id,order_number,customer_name,billing_address,shipping_address,order_status,order_date,order_type,reference_order) VALUES(?,?,?,?,?,?,?,?,?)";
+	         PreparedStatement st = c.prepareStatement(sql);
+	         //st.setString(0,order_number);
+	         st.setString(0,myStringArray[0]);
+	         st.setString(1,myStringArray[1]);
+	         st.setString(2,myStringArray[2]);
+	         st.setString(3,myStringArray[3]);
+	         st.setString(4,myStringArray[4]);
+	         st.setString(5,myStringArray[5]);
+	         st.setString(6,myStringArray[6]);
+	         st.setString(7,myStringArray[7]);
+	         st.setString(8,myStringArray[8]);
 	         System.out.println("Opened database successfully_1");
 	         stmt = c.createStatement();
 	         stmt.executeUpdate(sql);
