@@ -79,7 +79,7 @@ public void EmployeeDaoImpl(NamedParameterJdbcTemplate template) {
 	         c.setAutoCommit(false);
 	         //String sql = "INSERT INTO public.order_header (order_id,order_number,customer_name,billing_address,shipping_address,order_status,order_date,order_type,reference_order) VALUES(11,'ord1','john','12, almhult','12, almhult','booked','2019-10-23 10:18:55.695','standard',NULL)";
 	         //String sql = "INSERT INTO public.order_header (order_id,order_number,customer_name,billing_address,shipping_address,order_status,order_date,order_type,reference_order) VALUES(order_id,sr_1,sr_2,sr_3,sr_4,sr_5,sr_6,sr_7,sr_8)";
-	         String sql = "INSERT INTO public.order_header (order_id,order_number,customer_name,billing_address,shipping_address,order_status,order_type,reference_order) VALUES(?,?,?,?,?,?,?,?,?)";
+	         String sql = "INSERT INTO public.order_header (order_id,order_number,customer_name,billing_address,shipping_address,order_status,order_date,order_type,reference_order) VALUES(?,?,?,?,?,?,?,?,?)";
 	         PreparedStatement st = c.prepareStatement(sql);
 	         //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.HH.mm.ss.SSS");
 	         //2019-10-23 10:18:55.695
